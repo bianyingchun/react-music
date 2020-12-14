@@ -1,0 +1,61 @@
+.player {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 60px;
+  right: 0;
+  z-index: $player-index;
+  background: $module-bg;
+  display: flex;
+  align-items: center;
+
+  .icon {
+    width: 40px;
+    height: 40px;
+    padding: 0 $padding 0 $padding-lg;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+  }
+
+  .text {
+    flex: 1;
+    overflow: hidden;
+
+    .name {
+      margin-bottom: $gap-sm;
+      @include text-overflow();
+    }
+
+    .lyric {
+      color: $text-secondary;
+      font-size: $font-size-xs;
+      @include text-overflow();
+    }
+  }
+
+  .control {
+    padding: 0 $padding;
+    .iconfont {
+      font-size: 32px;
+    }
+    .icon-mini {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      font-size: 16px;
+      transform: translate(-50%, -50%);
+      &.icon-pause {
+        color: $primary;
+      }
+    }
+    &.playing {
+      .progress-bar {
+        stroke: $gary;
+      }
+    }
+  }
+}

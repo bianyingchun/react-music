@@ -1,0 +1,14 @@
+.artist-container {
+  .title,
+  .artist-item {
+    padding: $padding $padding-lg;
+    .text {
+      @include text-overflow();
+    }
+  }
+  .artist-item {
+    img {
+      margin-right: $gap;
+    }
+  }
+}

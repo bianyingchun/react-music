@@ -1,0 +1,32 @@
+.tool-panel-trigger {
+  padding: $padding-xs;
+  .iconfont {
+    color: $gary;
+  }
+}
+.tool-panel-container {
+  max-height: 50vh;
+  overflow-y: auto;
+  .header {
+    padding: $padding-lg;
+    color: $text-secondary;
+    @include border1px($gary, bottom);
+  }
+  .main {
+    padding-bottom: $padding;
+    .tool-item {
+      padding: $padding $padding-lg;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+
+      .iconfont {
+        margin-right: $gap;
+        font-size: $font-size-lg;
+      }
+      .text {
+        @include text-overflow();
+      }
+    }
+  }
+}

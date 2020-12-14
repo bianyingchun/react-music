@@ -1,0 +1,64 @@
+.song-item {
+  display: flex;
+  padding: $padding $padding-lg;
+  align-items: center;
+  &.active {
+    .rank {
+      color: red;
+    }
+  }
+  .rank {
+    width: 25px;
+    color: $text-secondary;
+    margin-right: $gap-lg;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    &.active {
+      font-weight: bold;
+      color: $primary;
+    }
+    .update {
+      font-size: $font-size-xs;
+      color: $gary;
+      transform: scale(0.8, 0.8);
+      .iconfont {
+        font-size: $font-size-xs;
+      }
+      .new {
+        color: #57d15d;
+      }
+      .up {
+        color: #fb4911;
+      }
+      .down {
+        color: #68c6fd;
+      }
+    }
+  }
+  .pic {
+    border-radius: $border-radius;
+    width: 40px;
+    height: 40px;
+    margin-right: $gap;
+  }
+  .content {
+    flex: 1;
+    overflow: hidden;
+    .name {
+      @include text-overflow();
+      > span {
+        color: $text-secondary;
+      }
+    }
+    .desc {
+      @include text-overflow();
+      color: $text-secondary;
+      font-size: $font-size-xs;
+    }
+  }
+  .tools {
+    padding: 0 $padding;
+  }
+}

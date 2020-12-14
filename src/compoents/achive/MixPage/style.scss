@@ -1,0 +1,63 @@
+.bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: $module-bg;
+  z-index: -1;
+  overflow: hidden;
+  .cover {
+    filter: blur(70px);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-size: cover;
+    left: 0;
+    top: 0;
+  }
+}
+.mix-container {
+  height: 100vh;
+  overflow: auto;
+  .title-bar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: $title-bar-index;
+    overflow: hidden;
+  }
+}
+$navbarHeight: 40px;
+.mix-info {
+  z-index: 1;
+  overflow: hidden;
+  padding: calc(#{$padding-lg} + 60px) $padding-lg $navbarHeight;
+  background: $module-bg;
+  min-height: 132px;
+  position: relative;
+  .navbar {
+    height: $navbarHeight;
+    line-height: $navbarHeight;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background: $module-bg;
+    right: 0;
+    .navbar-content {
+      background: $body-bg;
+      padding: 0 $padding-lg;
+      .iconfont {
+        width: 25px;
+        display: inline-block;
+        text-align: center;
+        margin-right: $gap;
+      }
+    }
+    &.fixed {
+      position: fixed;
+      top: 60px;
+    }
+  }
+}
