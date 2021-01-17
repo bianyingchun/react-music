@@ -15,19 +15,26 @@ interface LoginPhoneParams {
 }
 export function loginByPhone(params: LoginPhoneParams) {
   // ?phone=xxx&password=yyy
-  return request<LoginStatus>("/login/cellphone", "post", params);
+  return request<LoginStatus>("/login/cellphone", "post", {
+    ...params,
+    timestamp: Date.now(),
+  });
 }
 
 export function loginRefresh() {
-  return request<any>("/login/refresh", "get");
+  return request<any>("/login/refresh", "get", { timestamp: Date.now() });
 }
 
 export function getAccount() {
-  return request<LoginStatus>("/user/account", "get");
+  return request<LoginStatus>("/user/account", "get", {
+    timestamp: Date.now(),
+  });
 }
 
 export function getLoginStatus() {
-  return request<LoginStatus>("/login/status", "get");
+  return request<LoginStatus>("/login/status", "get", {
+    timestamp: Date.now(),
+  });
 }
 
 export async function getUserPlaylist(uid: number) {
@@ -57,7 +64,10 @@ export async function getUserPlaylist(uid: number) {
 }
 
 export function getUserDetail(uid: number) {
-  return request<UserDetail>("user/detail", "get", { uid });
+  return request<UserDetail>("user/detail", "get", {
+    uid,
+    timestamp: Date.now(),
+  });
 }
 
 // 听歌记录 type=0 所有时间 type =1 最近一周
@@ -69,7 +79,7 @@ export function getUserRecord(uid: number, type = 0) {
 export function getFollowedList(uid: number, params: PageParams = {}) {
   return request<FollowedList>("/user/followeds", "get", { uid, ...params });
 }
-//关注
+//关注列表
 export function getFollowList(uid: number, params: PageParams = {}) {
   return request<FollowList>("/user/follows", "get", { uid, ...params });
 }
@@ -80,4 +90,20 @@ export async function getlikelistIds(uid: number) {
     timestamp: Date.now(),
   });
   return res.data.ids as number[];
+}
+
+// 关注/取关
+// id : 用户 id
+// t : 1为关注,其他为取消关注
+export function followUser(uid: number, follow: boolean) {
+  return request<any>("/follow", "post", {
+    uid,
+    t: follow ? 1 : 0,
+    timestamp: Date.now(),
+  });
+}
+
+// 登出
+export function logout() {
+  return request<any>("/logout", "post", { timestamp: Date.now() });
 }

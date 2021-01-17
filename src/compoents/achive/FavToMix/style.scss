@@ -1,0 +1,11 @@
+.fav-to-mix-container {
+  background: $module-bg;
+  color: $text;
+  .header {
+    padding: $padding-lg;
+  }
+  .mix-list {
+    overflow-y: auto;
+    max-height: 60vh;
+  }
+}

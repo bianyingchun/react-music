@@ -1,6 +1,6 @@
 import React from "react";
 import { Ar } from "src/types";
-
+import "./style.scss";
 interface SongArProps {
   list: Ar[];
   onSelect: (ar: Ar) => void;

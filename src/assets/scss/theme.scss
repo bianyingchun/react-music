@@ -7,7 +7,8 @@
   $primary,
   $link-bg,
   $body-bg,
-  $module-bg
+  $module-bg,
+  $border
 ) {
   #{--body-bg}: $body-bg;
   #{--text}: $text;
@@ -18,11 +19,12 @@
   #{--header-bg}: $header-bg;
   #{--link-bg}: $link-bg;
   #{--module-bg}: $module-bg;
+  #{--border}: $border;
   #{--bg-reversal-opacity-9}: rgba($text, 0.9);
 }
 
-#app {
-  &.default {
+.theme {
+  &.light {
     @include css-var(
       $text: #333,
       $text-reversal: #fff,
@@ -33,7 +35,8 @@
       $link-bg: #f34d3f,
       $header-bg: #da3d34,
       $body-bg: #f0f0f0,
-      $module-bg: #fff
+      $module-bg: #fff,
+      $border: #ccc
     );
   }
 
@@ -45,9 +48,10 @@
       $text-secondary: #ccc,
       $primary: #f1423d,
       $link-bg: #414141,
-      $header-bg: #262626,
+      $header-bg: #414141,
       $body-bg: #262626,
-      $module-bg: #2c2c2c
+      $module-bg: #2c2c2c,
+      $border: #4e4a4a
     );
   }
 }

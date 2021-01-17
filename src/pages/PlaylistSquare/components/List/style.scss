@@ -1,0 +1,33 @@
+.playlist-square-content {
+  .mix-list-container {
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: $padding-lg;
+    box-sizing: border-box;
+    .mix-list {
+      @include flex-list();
+    }
+    .title {
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: $padding-lg;
+      .text {
+        font-weight: 600;
+        font-size: $font-size-lg;
+      }
+      .filter-btn {
+        font-size: 12px;
+        border: 1px solid #afafaf;
+        border-radius: 13px;
+        padding: 0 10px;
+        line-height: 1;
+        display: flex;
+        align-items: center;
+        .iconfont {
+          margin-right: $gap-sm;
+        }
+      }
+    }
+  }
+}

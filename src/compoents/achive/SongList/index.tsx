@@ -1,9 +1,11 @@
-import React, { useCallback } from "react";
+import React from "react";
 import { useHistory } from "react-router-dom";
 import "./style.scss";
 import { Track, TrackId } from "src/types";
 import { getSingerName, showSongAr } from "src/hooks/useSongAr";
 import ToolPanel from "src/compoents/achive/toolPanel";
+import { favTrackToMix } from "src/compoents/achive/FavToMix";
+
 interface SongListProps {
   list: Track[];
   trackIds?: TrackId[];
@@ -12,6 +14,7 @@ interface SongListProps {
   currentItem?: Track;
   canDelete?: Boolean;
   onDelete?: (t: Track) => void;
+  onSelect: (list: Track[], index: number) => void;
 }
 
 function getUpdateRank(index: number, trackIds: TrackId[]) {
@@ -41,10 +44,10 @@ const SongList: React.FC<SongListProps> = ({
   inToplist = false,
   rank = false,
   canDelete = false,
+  onSelect,
   onDelete,
 }) => {
   const history = useHistory();
-  function onSelect() {}
   function RankUpdate(index: number) {
     const { up, down, isNew } = getUpdateRank(index, trackIds);
     if (isNew) {
@@ -79,7 +82,7 @@ const SongList: React.FC<SongListProps> = ({
         text: "收藏到歌单",
         icon: "icon-add-box",
         action() {
-          // favTrackToMix(song);
+          favTrackToMix(song);
         },
       },
       {
@@ -120,21 +123,23 @@ const SongList: React.FC<SongListProps> = ({
                 : "song-item"
             }
             key={index}
+            onClick={() => onSelect(list, index)}
           >
             {rank ? (
               <div className={inToplist && index < 3 ? "rank active" : "rank"}>
                 <div className="num">{index + 1}</div>
                 {inToplist && RankUpdate(index)}
               </div>
-            ) : (
+            ) : song.al.picUrl ? (
               <img src={song.al.picUrl} className="pic" alt="" />
-            )}
+            ) : null}
             <div className="content">
               <div className="name">
                 {song.name}
-                {song.alia.length && <span>({song.alia[0]})</span>}
+                {!!song.alia.length && <span>({song.alia[0]})</span>}
               </div>
               <div className="desc">
+                {song.fee === 1 && <span className="fee">vip</span>}
                 <span className="singer-album">
                   {getSingerName(song) + "-" + song.al.name}
                 </span>
@@ -146,10 +151,10 @@ const SongList: React.FC<SongListProps> = ({
                 e.stopPropagation();
               }}
             >
-              {/* <ToolPanel
+              <ToolPanel
                 list={getTools(song)}
                 title={`歌曲: ${song.name}`}
-              ></ToolPanel> */}
+              ></ToolPanel>
             </div>
           </div>
         );

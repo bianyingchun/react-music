@@ -1,0 +1,23 @@
+.module-container {
+  margin: $gap-lg 0;
+}
+.mine-page-container {
+  .likelist {
+    padding: $padding-lg;
+  }
+  .mix-list-container {
+    .mix-list-header {
+      padding: $padding-lg;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .title {
+        font-size: $font-size-sm;
+        color: $gary;
+      }
+    }
+    .mix-list {
+      padding-bottom: $gap;
+    }
+  }
+}

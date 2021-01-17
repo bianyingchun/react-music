@@ -1,5 +1,9 @@
-export type THEME_TYPES = "default" | "dark";
+export interface ThemeItem {
+  name: string;
+  val: Theme;
+}
 
-export interface SystemState {
-  theme: THEME_TYPES;
+export enum Theme {
+  light = "light",
+  dark = "dark",
 }

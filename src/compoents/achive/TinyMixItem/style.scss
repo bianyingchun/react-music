@@ -1,0 +1,24 @@
+.tiny-mix-item {
+  padding: $padding-sm $padding-lg;
+  display: flex;
+  align-items: center;
+  .mix-cover {
+    width: 50px;
+    height: 50px;
+    border-radius: $border-radius;
+    margin-right: $gap;
+    object-fit: cover;
+  }
+  .mix-text {
+    flex: 1;
+    overflow: hidden;
+    .name {
+      @include text-overflow();
+    }
+    .desc {
+      @include text-overflow();
+      color: $text-secondary;
+      font-size: $font-size-xs;
+    }
+  }
+}

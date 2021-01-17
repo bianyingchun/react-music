@@ -1,0 +1,12 @@
+.hq-tag-container {
+  padding: $padding-lg;
+  .hq-title {
+    margin-bottom: $padding-lg;
+  }
+  .hq-tag-list {
+    @include flex-list($gap, $gap-lg, 4);
+  }
+  .tag-item.all {
+    margin-bottom: $gap-lg;
+  }
+}

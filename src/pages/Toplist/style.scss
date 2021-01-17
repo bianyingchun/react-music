@@ -1,0 +1,6 @@
+.toplist-container {
+  padding: $padding-lg;
+  .mix-list {
+    @include flex-list();
+  }
+}

@@ -1,4 +1,5 @@
 // specialType = 10 榜单
+import { Artist } from "./artist";
 export interface TrackId {
   id: number;
   v: number;
@@ -114,4 +115,138 @@ export enum PlayMode {
   sequence = 0,
   random,
   loop,
+}
+
+export interface PlayModeItem {
+  icon: string;
+  text: string;
+  val: number;
+}
+
+export interface SongList {
+  code: number;
+  more: boolean;
+  total?: number;
+  songs: Track[];
+}
+
+export interface Track2 {
+  name: string; //
+  id: number; //
+  position: number; //pt
+  alias: any[]; //alia
+  status: number; //st
+  fee: number; //
+  copyrightId: number; //copyright
+  disc: string;
+  no: number; //
+  artists: Artist[]; // ar
+  album: Album; //al
+  starred: boolean;
+  popularity?: number; //pop
+  score: number;
+  starredNum?: number;
+  duration: number; //dt
+  playedNum?: number;
+  dayPlays?: number;
+  hearTime?: number;
+  ringtone?: (null | string)[];
+  crbt?: any;
+  audition?: any;
+  copyFrom?: string;
+  commentThreadId?: string;
+  rtUrl?: any; //
+  ftype: number; //
+  rtUrls: any[]; //
+  copyright: number;
+  transName?: string;
+  sign?: any;
+  mark: number; //
+  mvid: number; //mv
+  hMusic?: HMusic | HMusic; //h
+  mMusic?: HMusic | HMusic; //m
+  lMusic?: HMusic; //l
+  bMusic?: HMusic;
+  mp3Url?: any;
+  rtype: number; //
+  rurl?: any; //
+  transNames?: string[];
+  index?: number;
+}
+
+interface HMusic {
+  name?: any;
+  id: number;
+  size: number;
+  extension: string;
+  sr: number;
+  dfsId: number;
+  bitrate: number;
+  playTime: number;
+  volumeDelta: number;
+}
+
+interface Album {
+  name: string;
+  id: number;
+  type?: string;
+  size: number;
+  picId: number;
+  blurPicUrl: string;
+  companyId: number;
+  pic: number;
+  picUrl: string;
+  publishTime: number;
+  description: string;
+  tags: string;
+  company?: string;
+  briefDesc: string;
+  artist: Artist;
+  songs: any[];
+  alias: string[];
+  status: number;
+  copyrightId: number;
+  commentThreadId: string;
+  artists: Artist[];
+  picId_str?: string;
+}
+
+export interface SongDetail {
+  songs: Track[];
+  privileges: Privilege[];
+  code: number;
+}
+
+interface Privilege {
+  id: number;
+  fee: number;
+  payed: number;
+  st: number;
+  pl: number;
+  dl: number;
+  sp: number;
+  cp: number;
+  subp: number;
+  cs: boolean;
+  maxbr: number;
+  fl: number;
+  toast: boolean;
+  flag: number;
+  preSell: boolean;
+  playMaxbr: number;
+  downloadMaxbr: number;
+  freeTrialPrivilege: FreeTrialPrivilege;
+  chargeInfoList: ChargeInfoList[];
+}
+
+interface ChargeInfoList {
+  rate: number;
+  chargeUrl?: any;
+  chargeMessage?: any;
+  chargeType: number;
+}
+
+interface FreeTrialPrivilege {
+  resConsumable: boolean;
+  userConsumable: boolean;
 }

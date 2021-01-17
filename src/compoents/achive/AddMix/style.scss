@@ -1,0 +1,56 @@
+.create-playlist-trigger .icon-add {
+  color: $gary;
+  padding: $padding-xs;
+}
+.create-playlist-container {
+  padding: $padding-lg;
+  .btns {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: $gap-lg;
+    button {
+      font-size: $font-size-mx;
+    }
+  }
+  .input-box {
+    padding: $padding-sm;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.2);
+    margin: $gap-lg 0;
+  }
+  .toggle-privacy {
+    position: relative;
+    input[type="checkbox"] {
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      border-radius: $border-radius-sm;
+    }
+    .checkbox-view {
+      display: flex;
+      align-items: center;
+      .state {
+        border-radius: $border-radius-sm;
+        border: $gary solid 1px;
+        margin-right: $gap;
+        width: 14px;
+        height: 14px;
+        display: inline-flex;
+        overflow: hidden;
+        align-items: center;
+        justify-content: center;
+        .iconfont {
+          font-size: $font-size;
+          color: $primary;
+        }
+      }
+      .text {
+        color: $text-secondary;
+      }
+    }
+  }
+}

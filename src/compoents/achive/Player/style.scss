@@ -2,13 +2,12 @@
   position: fixed;
   left: 0;
   bottom: 0;
-  height: 60px;
+  height: $player-height;
   right: 0;
   z-index: $player-index;
   background: $module-bg;
   display: flex;
   align-items: center;
-
   .icon {
     width: 40px;
     height: 40px;
@@ -24,7 +23,6 @@
   .text {
     flex: 1;
     overflow: hidden;
-
     .name {
       margin-bottom: $gap-sm;
       @include text-overflow();
@@ -40,7 +38,8 @@
   .control {
     padding: 0 $padding;
     .iconfont {
-      font-size: 32px;
+      font-size: 30px;
+      color: $gary;
     }
     .icon-mini {
       position: absolute;
@@ -57,5 +56,206 @@
         stroke: $gary;
       }
     }
+  }
+}
+
+@media screen and (min-width: 414px) {
+  .m-song-disc {
+    width: 342px;
+    height: 342px;
+  }
+}
+
+@media screen and (min-width: 360px) {
+  .m-song-disc {
+    width: 296px;
+    height: 296px;
+  }
+}
+
+.full-player {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: fixed;
+  z-index: $fullscreen-player-index;
+  background: $body-bg;
+  color: #fff;
+  .iconfont {
+    color: #fff;
+  }
+  .bg {
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    position: absolute;
+    background-size: cover;
+    box-sizing: border-box;
+    filter: blur(50px) brightness(0.6);
+  }
+
+  .content {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: $padding-lg;
+    header {
+      display: flex;
+      align-items: center;
+      .title {
+        flex: 1;
+        margin: 0 $padding;
+        overflow: hidden;
+        .name {
+          @include text-overflow();
+        }
+        .singer {
+          font-size: $font-size-sm;
+          color: rgba(255, 255, 255, 0.5);
+        }
+      }
+    }
+  }
+
+  main {
+    flex: 1;
+    position: relative;
+    .lyric-wraper {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      top: 0;
+      text-align: center;
+      overflow: auto;
+      .lyric-list {
+        transition: transform 0.3s ease-in-out;
+        padding: 50% 0;
+        .lyric-item {
+          padding: $padding;
+          color: $gary;
+          &.active {
+            color: #fff;
+          }
+        }
+      }
+      .no-lyric {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+    .disc-wraper {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .m-song-disc {
+        box-sizing: border-box;
+        border: 5px solid rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        overflow: hidden;
+        img {
+          object-fit: cover;
+          height: 100%;
+          width: 100%;
+        }
+        animation-fill-mode: forwards;
+        animation: rotate 20s linear infinite;
+        animation-play-state: paused;
+        &.playing {
+          animation-play-state: running;
+        }
+      }
+      .player-toolbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: absolute;
+        right: 30px;
+        left: 30px;
+        bottom: 0;
+        .tool-item {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding: $padding $padding-lg;
+          .iconfont {
+            font-size: 24px;
+            &.icon-fav-fill {
+              color: $primary;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  footer {
+    .progress-wrapper {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      padding: $padding 0;
+
+      .time {
+        font-size: $font-size-xs;
+        flex: 0 0 30px;
+        line-height: 30px;
+        width: 30px;
+
+        &.time-r {
+          color: $gary;
+        }
+      }
+
+      .progress-bar-wrapper {
+        flex: 1;
+        margin: 0 $gap;
+      }
+    }
+
+    .operators {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: $padding $padding-lg;
+
+      .iconfont {
+        font-size: 24px;
+      }
+
+      .play-btn {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        border: 2px solid #fff;
+      }
+    }
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
   }
 }

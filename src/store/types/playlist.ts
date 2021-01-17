@@ -11,9 +11,9 @@ export const SET_FAVED_PLAYLIST = "SET_FAVED_PLAYLIST";
 export const SET_USER_LIKELIST = "SET_USER_LIKELIST";
 export const SET_USER_LIKELISTIDS = "SET_USER_LIKELISTIDS";
 
-export const SET_POSTING = "SET_POSTING";
-export const SET_FETCHING = "SET_FETCHING";
-
+export const SET_PLAYLIST_POSTING = "SET_PLAYLIST_POSTING";
+export const SET_PLAYLIST_FETCHING = "SET_PLAYLIST_FETCHING";
+export const CLEAR_USER_PLAYLIST = "CLEAR_USER_PLAYLIST";
 interface SetPlaylistCatlist {
   type: typeof SET_PLAYLIST_CATLIST;
   payload: CategoryList[];
@@ -22,7 +22,9 @@ interface SetHqTaglist {
   type: typeof SET_HQ_TAGLIST;
   payload: Tag[];
 }
-
+interface clearUserPlaylist {
+  type: typeof CLEAR_USER_PLAYLIST;
+}
 interface SetPlaylistDetail {
   type: typeof SET_PLAYLIST_DETAIL;
   payload: Playlist2;
@@ -45,6 +47,10 @@ interface SetUserLikelistIds {
   type: typeof SET_USER_LIKELISTIDS;
   payload: number[];
 }
+interface SetPlaylistPosting {
+  type: typeof SET_PLAYLIST_POSTING;
+  payload: boolean;
+}
 
 export type PlaylistActionTypes =
   | SetUserLikelistIds
@@ -53,10 +59,13 @@ export type PlaylistActionTypes =
   | SetPlaylistDetail
   | SetHqTaglist
   | SetPlaylistCatlist
-  | SetFavedPlaylist;
+  | SetFavedPlaylist
+  | SetPlaylistPosting
+  | clearUserPlaylist;
 
 export interface PlaylistState {
   loading: boolean;
+  posting: boolean;
   list: Playlist[];
   hqTags: Tag[];
   catlist: CategoryList[];

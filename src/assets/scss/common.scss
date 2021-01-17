@@ -7,7 +7,6 @@
 .slide-up-exit-to {
   transform: translate3d(0, 100%, 0);
 }
-
 .tag-item {
   border-radius: 15px;
   height: 30px;
@@ -23,7 +22,7 @@
   .module-header {
     display: flex;
     align-items: center;
-    margin: $padding-lg;
+    padding: $padding-lg;
   }
 }
 .title-bar {
@@ -57,4 +56,38 @@
 .sub-text {
   font-size: $font-size-sm;
   color: $gary;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  .nav-list {
+    flex: 1;
+    display: flex;
+    white-space: nowrap;
+    overflow-x: auto;
+    .nav-item {
+      padding: $padding $padding-lx;
+      position: relative;
+      &.active {
+        color: $primary;
+        font-weight: 600;
+        &::after {
+          display: block;
+          content: "";
+          height: 2px;
+          background: $primary;
+          position: absolute;
+          width: 30px;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          border-radius: 2px;
+        }
+      }
+    }
+  }
+  .more-btn {
+    padding: $padding;
+  }
 }

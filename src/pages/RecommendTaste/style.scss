@@ -1,0 +1,21 @@
+.daily-recommend-info {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  .time {
+    display: flex;
+    align-items: baseline;
+    font-size: $font-size-lg;
+    .date {
+      font-size: 36px;
+    }
+    .divide {
+      margin: 0 $gap-xs;
+    }
+    margin-right: $gap;
+  }
+  .text {
+    flex: 1;
+  }
+}

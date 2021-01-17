@@ -4,7 +4,7 @@
   top: 0;
   height: 100%;
   width: 100%;
-  background: $module-bg;
+  background: #2c2c2c;
   z-index: -1;
   overflow: hidden;
   .cover {
@@ -18,7 +18,6 @@
   }
 }
 .mix-container {
-  height: 100vh;
   overflow: auto;
   .title-bar {
     position: fixed;
@@ -27,24 +26,27 @@
     top: 0;
     z-index: $title-bar-index;
     overflow: hidden;
+    color: #fff;
   }
 }
 $navbarHeight: 40px;
 .mix-info {
   z-index: 1;
   overflow: hidden;
-  padding: calc(#{$padding-lg} + 60px) $padding-lg $navbarHeight;
-  background: $module-bg;
+  padding: calc(#{$padding-lg} + 61px) $padding-lg $navbarHeight;
+  background: #2c2c2c;
   min-height: 132px;
   position: relative;
+  color: #fff;
   .navbar {
     height: $navbarHeight;
     line-height: $navbarHeight;
     position: absolute;
     left: 0;
     bottom: 0;
-    background: $module-bg;
     right: 0;
+    background: $module-bg;
+    color: $text;
     .navbar-content {
       background: $body-bg;
       padding: 0 $padding-lg;

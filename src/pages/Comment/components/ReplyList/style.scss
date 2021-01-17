@@ -1,0 +1,19 @@
+.reply-page {
+  height: calc(100vh - 60px);
+}
+.reply-list-container {
+  padding: 0 $padding-lg 60px;
+  box-sizing: border-box;
+  .parent-comment {
+    .reply-count {
+      display: none;
+    }
+    margin-bottom: $gap-lg;
+  }
+  .reply-list {
+    .title {
+      font-weight: bold;
+      padding: $padding 0;
+    }
+  }
+}

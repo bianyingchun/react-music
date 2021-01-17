@@ -1,0 +1,14 @@
+.artist-category {
+  padding-bottom: $padding;
+  .category-item {
+    width: 60px;
+    text-align: center;
+    line-height: 30px;
+    display: inline-block;
+    &.active {
+      color: $primary;
+    }
+  }
+}
+.artist-list {
+}

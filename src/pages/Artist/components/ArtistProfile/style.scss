@@ -1,0 +1,11 @@
+.artist-profile {
+  .base-info,
+  .artist-desc {
+    .content {
+      padding: 0 $padding-lg $padding;
+      > div {
+        margin-bottom: $gap;
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+.account-box {
+  display: flex;
+  align-items: center;
+  margin: $padding-lg;
+  .avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+  .text {
+    flex: 1;
+    display: flex;
+    margin: 0 $gap;
+    overflow: hidden;
+    .nickname {
+      white-space: nowrap;
+      -ms-text-overflow: ellipsis;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      max-width: 100%;
+    }
+    .icon-right {
+      margin-left: $gap-sm;
+      color: $text;
+    }
+  }
+}

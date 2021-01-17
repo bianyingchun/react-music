@@ -6,12 +6,13 @@ interface MainPageProps {
   bgPic: String;
   header: React.ReactNode;
   main: React.ReactNode;
+  onPlayAll: () => void;
 }
 
 const MixPage: React.FC<MainPageProps> = ({
   title,
   bgPic,
-  children,
+  onPlayAll,
   header,
   main,
 }) => {
@@ -39,7 +40,11 @@ const MixPage: React.FC<MainPageProps> = ({
     history.goBack();
   };
   return (
-    <div className="mix-container" ref={container} onScroll={onScroll}>
+    <div
+      className="page-container mix-container"
+      ref={container}
+      onScroll={onScroll}
+    >
       <div className="title-bar">
         <div className="bg" style={{ opacity: titleOpacity }}>
           <div
@@ -64,7 +69,7 @@ const MixPage: React.FC<MainPageProps> = ({
         </div>
         <div className="header">{header}</div>
         <div ref={navBarElm} className={fixed ? "navbar fixed" : "navbar"}>
-          <div className="navbar-content">
+          <div className="navbar-content" onClick={onPlayAll}>
             <i className="iconfont icon-play"></i>
             <span>播放全部</span>
           </div>

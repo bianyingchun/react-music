@@ -1,0 +1,66 @@
+.playlist-info {
+  display: flex;
+  .cover {
+    position: relative;
+    margin-right: $gap-lg;
+    background-color: $module-bg;
+    width: 132px;
+    height: 132px;
+    border-radius: $border-radius;
+    background-size: cover;
+  }
+
+  .content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    .title,
+    .desc > .text {
+      @include mutil-text-overflow(2, 100%);
+    }
+    .creator {
+      display: flex;
+      align-items: center;
+      margin-top: $gap-sm;
+      color: rgba(255, 255, 255, 0.7);
+      .avatar {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+        margin-right: $gap;
+      }
+      .nickname {
+        margin-right: $gap-sm;
+      }
+    }
+    .desc {
+      margin-top: auto;
+      display: flex;
+      height: 36px;
+      align-items: center;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: $font-size-sm;
+      .text {
+        flex: 1;
+        margin-right: $gap-xs;
+      }
+    }
+  }
+}
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  .tool-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: $padding $padding-lg;
+    font-size: $font-size-sm;
+    color: #fff;
+    &.disabled {
+      color: $gary;
+    }
+  }
+}

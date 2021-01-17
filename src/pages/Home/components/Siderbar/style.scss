@@ -1,0 +1,57 @@
+.siderbar-toggle-btn {
+  .icon-menu {
+    font-size: $font-size-lx;
+  }
+}
+.siderbar {
+  .mask {
+    background: $modal-bg;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: $player-index + 1;
+    opacity: 0;
+    display: none;
+    transition: all 0.4s linear;
+  }
+  .siderbar-content {
+    position: fixed;
+    left: 0;
+    right: 60px;
+    top: 0;
+    bottom: 0;
+    overflow: hidden;
+    z-index: $player-index + 2;
+    background: $body-bg;
+    transform: translate3d(-100%, 0, 0);
+    transition: transform 0.4s ease-in-out;
+    color: $text;
+    .module-container {
+      .tool-item {
+        padding: $padding;
+        display: flex;
+        align-items: center;
+        .title {
+          flex: 1;
+          margin-right: $gap;
+        }
+        &.logout {
+          color: $primary;
+          justify-content: center;
+          width: 100%;
+        }
+      }
+    }
+  }
+  &.show {
+    .mask {
+      opacity: 1;
+      display: block;
+    }
+    .siderbar-content {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+}

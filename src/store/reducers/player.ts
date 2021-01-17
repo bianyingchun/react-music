@@ -3,7 +3,7 @@ import * as Types from "../types/player";
 const initialState: Types.PlayerState = {
   playList: [],
   sequenceList: [],
-  currentIndex: 0,
+  currentIndex: -1,
   mode: PlayMode.sequence,
   playing: false,
   // playHistory: loadPlay()
@@ -48,8 +48,9 @@ export default (
       const lyric = { ...state.lyric, currentIndex: action.payload };
       return { ...state, lyric };
     }
-    default:
-      return initialState;
+    default: {
+      return state;
+    }
   }
 };
 

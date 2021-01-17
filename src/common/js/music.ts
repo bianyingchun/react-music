@@ -1,4 +1,4 @@
-import { Lyric } from "src/types";
+import { Lyric, Track, Track2 } from "src/types";
 export const lyricParser = (lyric: string) => {
   const lines = lyric.split("\n");
   const pattern = /\[\d{2}:\d{2}(.\d{2,})?\]/g;
@@ -25,4 +25,56 @@ export const timePraser = (t: number) => {
   m = m < 10 ? "0" + m : m;
   s = s < 10 ? "0" + s : s;
   return m + ":" + s;
+};
+
+export const transformTrack = (song: Track2): Track => {
+  const {
+    name,
+    id,
+    position,
+    popularity,
+    alias,
+    fee,
+    copyright,
+    copyrightId,
+    artists,
+    album,
+    no,
+    duration,
+    rurl,
+    status,
+    rtUrls,
+    ftype,
+    mvid,
+    hMusic,
+    mMusic,
+    lMusic,
+    rtype,
+    mark,
+  } = song;
+  const track = {
+    id,
+    name,
+    fee,
+    rtype,
+    mark,
+    ftype,
+    rurl,
+    rtUrls,
+    no,
+    copyrightId,
+    copyright,
+    pt: position,
+    alia: alias,
+    st: status,
+    al: album,
+    ar: artists,
+    pop: popularity,
+    dt: duration,
+    mv: mvid,
+    h: hMusic,
+    m: mMusic,
+    l: lMusic,
+  };
+  return (track as unknown) as Track;
 };

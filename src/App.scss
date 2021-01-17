@@ -1,8 +1,21 @@
-@import "./assets/scss/theme.scss";
-@import "./assets/scss/base.scss";
-@import "./assets/scss/common.scss";
 #app {
-  min-height: 100vh;
+  height: 100vh;
   background-color: $body-bg;
   color: $text;
+  box-sizing: border-box;
+  overflow-y: auto;
+  position: relative;
+  &.player-visible {
+    padding-bottom: $player-height;
+    .page-container {
+      bottom: $player-height;
+    }
+  }
+  .page-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+  }
 }

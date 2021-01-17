@@ -1,0 +1,26 @@
+.search-result-container {
+  .fixed-bar {
+    position: fixed;
+    background: $header-bg;
+    left: 0;
+    right: 0;
+    .nav-list {
+      display: flex;
+      .nav-item {
+        padding: $padding-sm $padding-lg;
+        &.active {
+          border-bottom: 2px solid $primary;
+        }
+      }
+    }
+  }
+  .search-result-content {
+    height: 100vh;
+    .swiper-slide {
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding: $padding-lg;
+      box-sizing: border-box;
+    }
+  }
+}

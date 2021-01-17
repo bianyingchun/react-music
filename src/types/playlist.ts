@@ -1,5 +1,5 @@
 import { Artist } from "./artist";
-import { Track, TrackId } from "./song";
+import { Track, TrackId, Track2 } from "./song";
 import { User } from "./user";
 export interface PlayListDetail {
   code: number;
@@ -73,6 +73,8 @@ export interface Playlist {
   copywriter?: string;
   tag?: string;
   coverImgId_str?: string;
+  updateFrequency?: string;
+  ToplistType?: string;
 }
 export interface Playlist2 extends Playlist {
   subscribers: Subscriber[];
@@ -80,14 +82,12 @@ export interface Playlist2 extends Playlist {
   videoIds?: any;
   videos?: any;
   trackIds: TrackId[];
-  updateFrequency?: string;
   backgroundCoverId: number;
   backgroundCoverUrl?: any;
   titleImage: number;
   titleImageUrl?: any;
   englishTitle?: any;
   opRecommend: boolean;
-  ToplistType?: string;
   artists?: Artist[];
 }
 
@@ -161,4 +161,31 @@ export interface CreatePlaylistRes {
   playlist?: Playlist;
   code: number;
   message?: string;
+}
+
+export interface Playlist3 {
+  id: number;
+  name: string;
+  coverImgUrl: string;
+  creator: Creator;
+  subscribed: boolean;
+  trackCount: number;
+  userId: number;
+  playCount: number;
+  bookCount: number;
+  specialType: number;
+  officialTags?: any;
+  description?: string;
+  highQuality: boolean;
+  track: Track2;
+  alg: string;
+}
+
+interface Creator {
+  nickname: string;
+  userId: number;
+  userType: number;
+  authStatus: number;
+  expertTags?: any;
+  experts?: any;
 }

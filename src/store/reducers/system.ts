@@ -1,24 +1,23 @@
-import {
-  AuthActionTypes,
-  AuthState,
-  SET_ACCOUNT,
-  SET_IS_lOGINING,
-} from "../types/auth";
-const initialState: AuthState = {
-  logined: false,
-  profile: undefined,
-  account: undefined,
-  isLogining: false,
+import { SET_THEME, SystemActionTypes, SystemState } from "../types/system";
+import { THEME_LIST } from "src/common/js/config";
+import { Theme } from "src/types";
+import { loadTheme, saveTheme } from "src/common/js/cache";
+const initialState: SystemState = {
+  theme: {
+    list: THEME_LIST,
+    current: (loadTheme() as Theme) || Theme.light,
+  },
 };
 // eslint-disable-next-line import/no-anonymous-default-export
-export default (state = initialState, action: AuthActionTypes): AuthState => {
+export default (
+  state = initialState,
+  action: SystemActionTypes
+): SystemState => {
   switch (action.type) {
-    case SET_ACCOUNT: {
-      const { account, profile } = action.payload || {};
-      return { account, logined: !!account, profile, isLogining: false };
+    case SET_THEME: {
+      saveTheme(action.payload);
+      return { ...state, theme: { ...state.theme, current: action.payload } };
     }
-    case SET_IS_lOGINING:
-      return { ...state, isLogining: action.payload };
     default:
       return state;
   }

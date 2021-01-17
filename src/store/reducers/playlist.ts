@@ -11,6 +11,7 @@ const initialState: Types.PlaylistState = {
     likelistIds: [],
   },
   loading: false,
+  posting: false,
 };
 // eslint-disable-next-line import/no-anonymous-default-export
 export default (
@@ -31,8 +32,21 @@ export default (
       return { ...state, mine: { ...state.mine, faved: action.payload } };
     case Types.SET_USER_LIKELIST:
       return { ...state, mine: { ...state.mine, likelist: action.payload } };
-    case Types.SET_USER_LIKELISTIDS:
+    case Types.SET_USER_LIKELISTIDS: {
       return { ...state, mine: { ...state.mine, likelistIds: action.payload } };
+    }
+    case Types.SET_PLAYLIST_POSTING:
+      return { ...state, posting: action.payload };
+    case Types.CLEAR_USER_PLAYLIST:
+      return {
+        ...state,
+        mine: {
+          created: [],
+          faved: [],
+          likelist: null,
+          likelistIds: [],
+        },
+      };
     default:
       return state;
   }

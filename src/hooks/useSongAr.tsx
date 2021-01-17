@@ -1,7 +1,7 @@
 import { Track } from "src/types";
 import React from "react";
 import SongAr from "src/compoents/achive/SongAr";
-import { popupDialog } from "src/compoents/achive/Dialog";
+import { popupDialog } from "src/compoents/widgets/Dialog";
 export function getSingerName(track: Track) {
   return track.ar.map((item: any) => item.name).join("/");
 }

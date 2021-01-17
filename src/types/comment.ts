@@ -21,7 +21,7 @@ export interface Comment {
   user: User;
   beReplied: BeReplied[];
   pendantData?: PendantDatum;
-  showFloorComment?: any;
+  showFloorComment?: ShowFloorComment;
   status: number;
   commentId: number;
   content: string;
@@ -34,7 +34,13 @@ export interface Comment {
   repliedMark?: any;
   liked: boolean;
 }
-
+interface ShowFloorComment {
+  replyCount: number;
+  comments?: Comment;
+  showReplyCount: boolean;
+  topCommentIds?: number;
+  target?: any;
+}
 interface BeReplied {
   user: User;
   beRepliedCommentId: number;
@@ -47,4 +53,26 @@ interface PendantDatum {
   imageUrl: string;
 }
 
-export type CommentType = "music" | "album" | "dj" | "video" | "mv";
+export enum CommentType {
+  music = 0,
+  mv,
+  playlist,
+  album,
+  dj,
+  video,
+}
+
+export type CommentTypeNames = "music" | "mv" | "album" | "dj" | "video";
+
+export interface FloorCommentData {
+  code: number;
+  message: string;
+  data: {
+    ownerComment: Comment;
+    currentComment?: any;
+    comments: Comment[];
+    hasMore: boolean;
+    totalCount: number;
+    time: number;
+  };
+}

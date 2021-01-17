@@ -1,0 +1,33 @@
+.page-layout {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: $module-bg;
+  .page-layout-header {
+    .page-title-bar {
+      padding: $padding-lg;
+      display: flex;
+      align-items: center;
+      font-size: $font-size-lg;
+      .icon-back {
+        margin-right: $gap-lg;
+        font-size: $font-size-lx;
+        color: $text;
+      }
+      .title {
+        font-weight: 500;
+        flex: 1;
+        @include text-overflow;
+      }
+      .tools {
+        .iconfont {
+          margin-left: $gap-lg;
+        }
+      }
+    }
+  }
+  .page-layout-main {
+    flex: 1;
+    overflow-y: auto;
+  }
+}

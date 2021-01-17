@@ -1,0 +1,16 @@
+.progress-circle {
+  position: relative;
+  display: flex;
+  circle {
+    stroke-width: 8px;
+    transform-origin: center;
+    &.progress-background {
+      transform: scale(0.9);
+      stroke: $primary;
+    }
+    &.progress-bar {
+      transform: scale(0.9) rotate(-90deg);
+      stroke: $gary;
+    }
+  }
+}

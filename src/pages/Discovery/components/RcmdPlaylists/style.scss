@@ -1,0 +1,11 @@
+.rcmd-mix-list {
+  overflow-x: auto;
+  white-space: nowrap;
+  .mix-item {
+    width: 100px;
+    margin-right: $gap;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

@@ -1,0 +1,22 @@
+.confirm-dialog-container {
+  padding: $padding-lg;
+  .text {
+    color: $text-secondary;
+  }
+  .btns {
+    margin: $gap-lg 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    span {
+      color: $primary;
+      margin-right: $gap-lx;
+    }
+  }
+}
+
+.tool-tip-list {
+  .tool-item {
+    padding: $padding-lg;
+  }
+}

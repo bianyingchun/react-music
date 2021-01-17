@@ -1,0 +1,40 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  .home-navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 $padding-lg;
+    color: #fff;
+    background: $header-bg;
+    .iconfont {
+      color: #fff;
+    }
+    .nav-list {
+      justify-content: center;
+      align-items: center;
+      .nav-item {
+        font-size: $font-size-mx;
+        color: rgba(255, 255, 255, 0.5);
+        &.active {
+          color: #fff;
+          font-size: $font-size-lg;
+          &::after {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+  .home-content {
+    flex: 1;
+    overflow: hidden;
+    > .swiper-container {
+      height: 100%;
+    }
+    .home-slide {
+      overflow-y: auto;
+    }
+  }
+}

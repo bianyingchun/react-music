@@ -11,10 +11,12 @@ instance.interceptors.response.use(
     return response;
   },
   (err) => {
-    const { config, status } = err.response;
-    if (config.url !== "/user/account" && status === 301) {
-      // router.push('/login')
-      // todo
+    if (err.response) {
+      const { config, status } = err.response;
+      if (config.url !== "/user/account" && status === 301) {
+        // router.push('/login')
+        // todo
+      }
     }
     return Promise.reject(err);
   }
