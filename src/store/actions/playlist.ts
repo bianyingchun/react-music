@@ -95,7 +95,7 @@ export const setPlaylistCatlist = () => async (
       payload: list,
     });
   } catch (err) {
-    console.log(err);
+    toast("请求失败");
   }
 };
 
@@ -109,7 +109,7 @@ export const fetchHqTaglist = () => async (
       payload: res.data.tags,
     });
   } catch (err) {
-    console.log(err);
+    toast("请求失败");
   }
 };
 
@@ -163,7 +163,7 @@ export const deleteTrack = (pid: number, track: Track) => async (
     if (res.data.body.code !== 200) {
       message = res.data.body.message;
     } else {
-      if (state.detail && state.detail.id) {
+      if (state.detail && state.detail.id === pid) {
         const tracks = state.detail.tracks.slice();
         const index = tracks.findIndex((item) => item.id === track.id);
         tracks.splice(index, 1);
@@ -177,7 +177,7 @@ export const deleteTrack = (pid: number, track: Track) => async (
       const list = state.mine.created.slice();
       const index = list.findIndex((item) => item.id === pid);
       if (index !== -1) {
-        list[index].playCount--;
+        list[index].trackCount--;
         dispatch(setCreatedPlaylist(list));
       }
     }
@@ -196,14 +196,13 @@ export const addTrack = (pid: number, track: Track) => async (
   let message = "";
   try {
     const state = getState().playlist;
-    console.log(state);
     if (state.posting) return;
     dispatch(setPlaylistPosting(true));
     const res = await updatePlaylistTracks(pid, track.id, "add");
     if (res.data.body.code !== 200) {
       message = res.data.body.message;
     } else {
-      if (state.detail && state.detail.id && state.detail.id === pid) {
+      if (state.detail && state.detail.id === pid) {
         const tracks = [track, ...state.detail.tracks];
         dispatch(
           setPlaylistDetail({
@@ -271,7 +270,7 @@ export const addPlaylist = (name: string, privacy: boolean) => async (
       toast("创建失败");
     }
   } catch (err) {
-    toast(err);
+    toast("创建失败");
   } finally {
     dispatch(setPlaylistPosting(false));
   }
@@ -300,7 +299,7 @@ export const toggleLikeSong = (id: number, like: boolean) => async (
       }
     }
   } catch (err) {
-    toast("操作失败");
+    toast("请求失败");
   } finally {
     dispatch(setPlaylistPosting(false));
   }

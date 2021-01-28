@@ -42,11 +42,12 @@ $transition-time-slow: 0.4s;
 
 //z-index
 $player-index: 10;
+$title-bar-index: 10;
 $fullscreen-player-index: 11;
 $siderbar-index: 12;
-$bottom-panel-index: 100;
+$bottom-panel-index: 20;
+$login-box-index: 30;
 $modal-index: 1000;
-$title-bar-index: 10;
 // 动态主题配色
 $gary: #afafaf;
 
@@ -63,6 +64,6 @@ $bg-reversal-opacity-9: var(--bg-reversal-opacity-9);
 $border: var(--border);
 $text-link: #0c73c2;
 
-$modal-bg: rgba(0, 0, 0, 0.3);
+$modal-bg: rgba(0, 0, 0, 0.2);
 $transition: all 0.4s ease-in-out;
 $player-height: 60px;

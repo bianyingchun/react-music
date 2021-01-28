@@ -56,7 +56,6 @@ export default () => {
       }
       setState(initialState);
     }
-    console.log(id);
     if (id) {
       init();
     }

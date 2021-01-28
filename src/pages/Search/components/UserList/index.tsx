@@ -1,5 +1,4 @@
 import React, { useCallback, useEffect, useState, useRef } from "react";
-
 import { search } from "src/common/api/search";
 import { useLoadMore } from "src/hooks/useLoadMore";
 import { SearchTypeVal, SearchUserResult, User } from "src/types";

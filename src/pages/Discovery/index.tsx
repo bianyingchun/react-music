@@ -9,9 +9,9 @@ import {
   getHomeBallList,
   getBannerList,
 } from "src/common/api/discovery";
-import SwiperCore, { Scrollbar, Autoplay } from "swiper";
+import SwiperCore, { Scrollbar, Autoplay, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-SwiperCore.use([Scrollbar, Autoplay]);
+SwiperCore.use([Scrollbar, Autoplay, Pagination]);
 const Discovery = () => {
   const [state, setState] = useState<{
     homeData: HomePageData;

@@ -9,7 +9,7 @@ interface Props {
   sequenceList: Track[];
   mode: PlayModeItem;
   changeMode: () => void;
-  cleatList: () => void;
+  clearList: () => void;
   removeSong: (song: Track) => void;
 }
 const CurrentPlaylist: React.FC<Props> = ({
@@ -18,7 +18,7 @@ const CurrentPlaylist: React.FC<Props> = ({
   sequenceList,
   mode,
   changeMode,
-  cleatList,
+  clearList,
   removeSong,
 }) => {
   return (

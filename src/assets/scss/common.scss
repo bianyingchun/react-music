@@ -58,6 +58,12 @@
   color: $gary;
 }
 
+.loading {
+  padding: $padding-lg;
+  text-align: center;
+  color: $text-secondary;
+}
+
 .nav-container {
   display: flex;
   align-items: center;

@@ -29,7 +29,6 @@ const ProfilePage: React.FC<Props> = ({
       let h = node.clientHeight;
       const el = node.parentNode?.querySelector(".profile-header");
       if (el) h += el.clientHeight;
-      console.log(h);
       setHeaderHeight(h);
     }
     return;
@@ -48,7 +47,6 @@ const ProfilePage: React.FC<Props> = ({
         Math.min(1, top / (headerHeight - 60)).toFixed(2)
       );
       setTitleOpacity(ratio);
-      console.log(ratio);
       setScrollable(ratio >= 0.99);
     }
   }

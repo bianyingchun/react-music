@@ -18,7 +18,7 @@ const AppView: React.FC = () => {
   const { theme } = useTheme();
   const classList = ["theme", theme];
   if (currentSong.id) classList.push("player-visible");
-  const logined = useLoginStatus();
+  const { logined } = useLoginStatus();
   return (
     <div id="app" className={classList.join(" ")} key={Number(logined)}>
       <BrowserRouter>

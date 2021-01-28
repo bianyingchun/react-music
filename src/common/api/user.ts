@@ -8,7 +8,7 @@ import {
   PageParams,
   FollowList,
   FollowedList,
-} from "../../types";
+} from "src/types";
 interface LoginPhoneParams {
   phone: string;
   password: string;

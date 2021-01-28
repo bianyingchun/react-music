@@ -1,14 +1,8 @@
-import React, {
-  useCallback,
-  useEffect,
-  useState,
-  useRef,
-  useMemo,
-} from "react";
+import React, { useCallback, useEffect, useState, useRef } from "react";
 
 import { search } from "src/common/api/search";
 import { useLoadMore } from "src/hooks/useLoadMore";
-import { SearchTrackResult, SearchTypeVal, Track, Track2 } from "src/types";
+import { SearchTrackResult, SearchTypeVal, Track } from "src/types";
 import { toast } from "src/compoents/widgets/Toast";
 import SongList from "src/compoents/achive/SongList";
 import { transformTrack } from "src/common/js/music";
@@ -22,7 +16,7 @@ interface Props {
 const TrackList: React.FC<Props> = ({ query, active }) => {
   const [loading, setLoading] = useState(false);
   const hasMore = useRef(true);
-  const [list, setList] = useState<Track2[]>([]);
+  const [list, setList] = useState<Track[]>([]);
   const { currentSong, insertSong } = usePlayMusic();
   const getList = useCallback(async () => {
     try {
@@ -33,7 +27,8 @@ const TrackList: React.FC<Props> = ({ query, active }) => {
         keywords: query,
       });
       hasMore.current = res.data.result.hasMore;
-      setList((list) => [...list, ...res.data.result.songs]);
+      const newList = res.data.result.songs.map((item) => transformTrack(item));
+      setList((list) => [...list, ...newList]);
     } catch (err) {
       toast("加载失败");
     } finally {
@@ -60,14 +55,11 @@ const TrackList: React.FC<Props> = ({ query, active }) => {
       toast("播放失败");
     }
   }
-  const trackList = useMemo(() => {
-    return list.map((item) => transformTrack(item));
-  }, [list]);
 
   return (
     <div className="result-list" ref={refreshElem}>
       <SongList
-        list={trackList}
+        list={list}
         onSelect={onSelect}
         currentItem={currentSong}
       ></SongList>

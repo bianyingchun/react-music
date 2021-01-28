@@ -26,7 +26,9 @@ const CommentList = () => {
   const sourceId = Number(id);
   const sourceType = CommentType[type];
   const sortTypeList =
-    type === "music" ? COMMENT.sortType.music : COMMENT.sortType.other;
+    sourceType === CommentType.music
+      ? COMMENT.sortType.music
+      : COMMENT.sortType.other;
   const {
     list,
     setList,

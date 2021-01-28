@@ -5,13 +5,13 @@
     align-items: center;
     &.active {
       .rank {
-        color: red;
+        color: $primary;
       }
     }
     .rank {
-      width: 25px;
+      width: 30px;
       color: $text-secondary;
-      margin-right: $gap-lg;
+      margin-right: $gap;
       display: flex;
       flex-direction: column;
       justify-content: center;

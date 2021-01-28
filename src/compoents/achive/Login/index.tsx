@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback } from "react";
 import { RootState } from "src/store";
 import { useDispatch, useSelector, shallowEqual } from "react-redux";
 import { login } from "src/store/actions/auth";

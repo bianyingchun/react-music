@@ -181,10 +181,7 @@ export const playSong = (song: Track) => (
   dispatch(setCurrentIndex(index));
 };
 
-export const clear = () => (
-  dispatch: Dispatch<PlayerActionTypes>,
-  getState: () => RootState
-) => {
+export const clear = () => (dispatch: Dispatch<PlayerActionTypes>) => {
   dispatch(setPlayList([]));
   dispatch(setSequenceList([]));
 };

@@ -32,5 +32,5 @@ export const useLoginStatus = () => {
   useEffect(() => {
     dispatch(checkLogin());
   }, [dispatch]);
-  return logined;
+  return { logined };
 };

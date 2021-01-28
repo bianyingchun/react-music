@@ -33,31 +33,4 @@
 .comment-list {
   padding: 0 $padding-lg 60px;
 }
-.comment-box {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  z-index: $player-index + 1;
-  background: $module-bg;
-  padding: $padding-lg;
-  display: flex;
-  align-items: flex-end;
-  .comment-input {
-    flex: 1;
-    margin-right: $gap;
-    max-height: 60px;
-    overflow: hidden;
-    &:focus {
-      outline: none;
-    }
-  }
-  .submit-btn {
-    background: transparent;
-  }
-  .comment-input::after {
-    content: attr(placeholder);
-    position: absolute;
-    color: $gary;
-  }
-}
+

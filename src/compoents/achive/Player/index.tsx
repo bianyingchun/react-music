@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { Link, useHistory, useLocation } from "react-router-dom";
 import "./style.scss";
-import { timePraser } from "src/common/js/music";
+import { timeParser } from "src/common/js/music";
 import { usePlayer } from "src/hooks/usePlayer";
 import { getSingerName, showSongAr } from "src/hooks/useSongAr";
 import ProgressCircle from "src/compoents/widgets/ProgressCirlce";
@@ -208,7 +208,7 @@ const Player = () => {
           </main>
           <footer>
             <div className="progress-wrapper">
-              <span className="time time-l">{timePraser(currentTime)}</span>
+              <span className="time time-l">{timeParser(currentTime)}</span>
               <div className="progress-bar-wrapper">
                 <ProgressBar
                   cachePercent={cachePercent}
@@ -216,7 +216,7 @@ const Player = () => {
                   onChange={onPercentChange}
                 ></ProgressBar>
               </div>
-              <span className="time time-r">{timePraser(currentSong.dt)}</span>
+              <span className="time time-r">{timeParser(currentSong.dt)}</span>
             </div>
             <div className="operators">
               <span
@@ -236,7 +236,6 @@ const Player = () => {
                 className="iconfont icon-play-list"
                 onClick={() => setListVisible(true)}
               ></span>
-              {/* <play-list></play-list> */}
             </div>
           </footer>
         </div>
@@ -252,7 +251,7 @@ const Player = () => {
       <BottomPanel show={listVisible} onHide={() => setListVisible(false)}>
         <CurrentPlaylist
           sequenceList={sequenceList}
-          cleatList={clearList}
+          clearList={clearList}
           mode={mode}
           changeMode={changeMode}
           removeSong={removeSong}

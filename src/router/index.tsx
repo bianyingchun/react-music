@@ -1,6 +1,5 @@
-import React, { Children } from "react";
+import React from "react";
 import {
-  BrowserRouter,
   // Switch,
   // Route,
   RouteComponentProps,
@@ -83,16 +82,6 @@ export const routes: RouteItem[] = [
     path: "/",
     component: Home,
     // exact: true,
-    routes: [
-      {
-        path: "/discovery",
-        component: loadable(() => import("src/pages/Discovery")),
-      },
-      {
-        path: "/mine",
-        component: loadable(() => import("src/pages/Mine")),
-      },
-    ],
   },
 ];
 

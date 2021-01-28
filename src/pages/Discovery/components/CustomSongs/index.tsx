@@ -1,8 +1,7 @@
 import React from "react";
 import "./style.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Creative } from "src/types";
-import { Track } from "src/types";
+import { Creative, Track } from "src/types";
 import { usePlayMusic } from "src/hooks/usePlayer";
 import { transformTrack } from "src/common/js/music";
 interface Props {

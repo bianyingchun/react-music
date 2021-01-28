@@ -4,7 +4,6 @@ import {
   SearchTypeVal,
   Theme,
   ThemeItem,
-  CommentType,
 } from "src/types";
 
 export const PLAY_MODE = {

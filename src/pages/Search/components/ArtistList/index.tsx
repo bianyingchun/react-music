@@ -40,7 +40,7 @@ const ArtistList: React.FC<Props> = ({ query, active }) => {
   return (
     <div className="result-list" ref={refreshElem}>
       {list.map((item, index) => (
-        <ArtistItem artist={item} key={index} />
+        <ArtistItem artist={item} key={item.id} />
       ))}
     </div>
   );

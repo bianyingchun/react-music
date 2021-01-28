@@ -18,7 +18,7 @@ export const lyricParser = (lyric: string) => {
   return lyricList;
 };
 
-export const timePraser = (t: number) => {
+export const timeParser = (t: number) => {
   t = Math.floor(t / 1000);
   let m: string | number = Math.floor(t / 60);
   let s: string | number = t % 60;

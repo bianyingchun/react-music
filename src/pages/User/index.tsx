@@ -9,11 +9,14 @@ import UserMusic from "src/compoents/achive/UserMusic";
 import { toast } from "src/compoents/widgets/Toast";
 import "./style.scss";
 import { useRouteParamId } from "src/hooks/usePage";
+import { UserDetail } from "src/types";
 // eslint-disable-next-line import/no-anonymous-default-export
 export default () => {
   let uid: number = useRouteParamId("user");
-  console.log(uid);
-  const [state, setState] = useState<any>({
+  const [state, setState] = useState<{
+    userDetail: UserDetail | null;
+    playlist: any;
+  }>({
     userDetail: null,
     playlist: {},
   });

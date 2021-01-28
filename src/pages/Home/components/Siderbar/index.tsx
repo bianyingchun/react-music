@@ -11,17 +11,21 @@ import { confirm } from "src/compoents/widgets/Dialog";
 const SiderBar: React.FC = () => {
   const dispatch = useDispatch();
   const theme = useSelector((state: RootState) => state.system.theme.current);
-  const { profile, toggleLoginBox, logout } = useAuth();
   const toggleTheme = useCallback(() => {
     dispatch(setTheme(theme === Theme.dark ? Theme.light : Theme.dark));
   }, [dispatch, theme]);
+  const { profile, toggleLoginBox, logout } = useAuth();
   const [visisble, setVisible] = useState(false);
   const [isLogOuting, setIsLogoutIng] = useState(false);
   const exitLogin = async () => {
-    await confirm("确认退出登录？");
-    setIsLogoutIng(true);
-    await logout();
-    setIsLogoutIng(false);
+    try {
+      await confirm("确认退出登录？");
+      setIsLogoutIng(true);
+      await logout();
+    } catch (err) {
+    } finally {
+      setIsLogoutIng(false);
+    }
   };
   return (
     <div className="siderbar-container">
@@ -37,7 +41,7 @@ const SiderBar: React.FC = () => {
           <div className="module-container">
             <div className="tool-item" onClick={toggleTheme}>
               <span className="iconfont icon-night"></span>
-              <span className="title">夜间模式</span>
+              <span className="title">暗黑模式</span>
               <Switch value={theme === Theme.dark} />
             </div>
           </div>

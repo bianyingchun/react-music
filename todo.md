@@ -1,3 +1,5 @@
+### react
+
 1. 歌手主页信息 //
 2. 关注歌手用户 // 关注用户 api 有 bug
 3. 前进刷新， 后退缓存 //
@@ -19,9 +21,28 @@
 18. commentList bug //
 19. 弹出框 相关组件 theme 状态
 20. 关注用户列表
-21. 播放列表按钮
-22. addTrackToMix bug 添加歌曲更新到歌单列表更新错误
-    //=========分割线===============
+21. 播放列表按钮 //
+22. addTrackToMix bug 添加歌曲更新到歌单列表更新错误//
+23. selectPlay 当再次点击当前列表并且是当前歌曲时 fullscreen player
+24. createPlaylist 位置错误，由于处于 transform 下 fixed 布局失效 // teleport
+
+#### vue3.0
+
+1. types 替换 //
+2. comment 模块重写 //
+3. usePlayMusic hook 播放器组件//
+4. swiper 逻辑提取 //
+5. search 补充
+6. 用户系统 //
+7. 首页 侧边栏 //
+8. useAuth auth 登录登出模块 //
+9. app 布局调整 //
+10. 链接可用 //
+11. swiper 样式只在入口处引入 //
+12. 项目文件结构优化 //
+13. logo
+
+#### 部署
 
 23. 服务器环境配置，npm nodejs mongodb
 24. 打包部署上线
