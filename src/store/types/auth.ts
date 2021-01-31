@@ -1,4 +1,4 @@
-import { LoginStatus } from "../../types/user";
+import { Profile, Account, LoginStatus } from "src/types";
 
 export const SET_IS_lOGINING = "SET_IS_lOGINING";
 export const SET_ACCOUNT = "SET_ACCOUNT";
@@ -27,8 +27,11 @@ export type AuthActionTypes =
   | SetLoginVisible
   | SetAuthPosting;
 
-export interface AuthState extends LoginStatus {
+export interface AuthState {
   loginVisible: boolean;
   isLogining: boolean;
+  logined: boolean;
   posting: boolean;
+  account: Account | null;
+  profile: Profile | null;
 }

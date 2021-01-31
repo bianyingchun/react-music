@@ -4,9 +4,11 @@ import SongList from "src/compoents/achive/SongList";
 import MixPage from "src/compoents/achive/MixPage";
 import { Track } from "src/types";
 import { usePlayMusic } from "src/hooks/usePlayer";
+import { useAuth } from "src/hooks/useAuth";
 import { getRecommendSongs } from "src/common/api/discovery";
 // eslint-disable-next-line import/no-anonymous-default-export
 export default () => {
+  const { account, toggleLoginBox } = useAuth();
   const [loading, setLoading] = useState(false);
   const [list, setList] = useState<Track[]>([]);
   const { selectPlay, currentSong } = usePlayMusic();
@@ -18,9 +20,17 @@ export default () => {
       setLoading(false);
       setList(res);
     }
-    getList();
+    if (account) {
+      getList();
+    } else {
+      setList([]);
+    }
+  }, [account]);
+  useEffect(() => {
+    if (!account) {
+      toggleLoginBox(true);
+    }
   }, []);
-
   return (
     <MixPage
       title="每日推荐"

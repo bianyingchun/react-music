@@ -38,9 +38,12 @@ export const login = (phone: string, password: string) => async (
     if (getState().auth.isLogining) return;
     dispatch(setLogining(true));
     const res = await loginByPhone({ phone, password });
-    dispatch(setAccount(res.data));
-    dispatch(fetchMyPlaylist());
-    return res;
+    if (res.data.code !== 200) {
+      toast(res.data.message || res.data.msg || "登录失败");
+    } else {
+      dispatch(setAccount(res.data));
+      dispatch(fetchMyPlaylist());
+    }
   } catch (err) {
     toast("登录失败");
     dispatch(setAccount(null));

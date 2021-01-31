@@ -59,7 +59,7 @@ const Discovery = () => {
         {state.ballList.map((item, index) => (
           <Link to={item.url} key={index} className="ball-item">
             <div className="icon">
-              <img src={item.icon} alt="" />
+              <i className={"iconfont " + item.icon}></i>
             </div>
             <div className="text">{item.text}</div>
           </Link>

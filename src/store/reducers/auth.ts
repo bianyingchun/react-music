@@ -8,8 +8,8 @@ import {
 } from "../types/auth";
 const initialState: AuthState = {
   logined: false,
-  profile: undefined,
-  account: undefined,
+  profile: null,
+  account: null,
   isLogining: false,
   loginVisible: false,
   posting: false,
@@ -18,7 +18,7 @@ const initialState: AuthState = {
 export default (state = initialState, action: AuthActionTypes): AuthState => {
   switch (action.type) {
     case SET_ACCOUNT: {
-      const { account, profile } = action.payload || {};
+      const { account = null, profile = null } = action.payload || {};
       return {
         ...state,
         account,

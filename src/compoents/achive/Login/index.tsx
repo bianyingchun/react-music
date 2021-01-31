@@ -26,14 +26,14 @@ const Login = () => {
   return (
     <div className="login-wraper">
       <div className="icon">
-        <img src="@/assets/logo.png" alt="" />
+        <img src="src/assets/pic/logo.png" alt="" />
       </div>
       <div className="login-info">
         <div className="form-item">
-          <input type="text" {...phone} />
+          <input type="text" {...phone} placeholder="账号" />
         </div>
         <div className="form-item">
-          <input type="password" {...password} />
+          <input type="password" {...password} placeholder="密码" />
         </div>
         <div className="form-item">
           <button

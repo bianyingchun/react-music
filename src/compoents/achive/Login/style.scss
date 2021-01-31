@@ -27,6 +27,9 @@
         padding: 0 $padding-lg;
         box-sizing: border-box;
       }
+      input {
+        background: rgba(255, 255, 255, 0.8);
+      }
       .login-btn {
         background: #fff;
         color: $primary;

@@ -25,6 +25,7 @@
 22. addTrackToMix bug 添加歌曲更新到歌单列表更新错误//
 23. selectPlay 当再次点击当前列表并且是当前歌曲时 fullscreen player
 24. createPlaylist 位置错误，由于处于 transform 下 fixed 布局失效 // teleport
+25. 登录 login-box api 错误处理 //
 
 #### vue3.0
 
@@ -40,7 +41,9 @@
 10. 链接可用 //
 11. swiper 样式只在入口处引入 //
 12. 项目文件结构优化 //
-13. logo
+13. logo //
+14. 登录 login-box api 错误处理 //
+15. 默认头像 //
 
 #### 部署
 
