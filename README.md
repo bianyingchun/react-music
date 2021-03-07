@@ -11,7 +11,7 @@
 ### 主题切换
 
 通过 css 变量和 sass mixin 的结合，实现了明暗主题的切换，当然你可以定义不同的主题。
-```
+
 <img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/407efbddb7354843adb4056c688c7326~tplv-k3u1fbpfcp-watermark.image" width="300px" alt="亮色主题">
 <img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cb52079c81c54d918c5377a5fa878b46~tplv-k3u1fbpfcp-watermark.image" width="300px" alt="亮色主题">
 
