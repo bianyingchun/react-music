@@ -20,8 +20,6 @@
 通过登录以体验更丰富的功能，如发表评论，点赞，关注用户，歌手，收藏歌曲，创建歌单等。在未登录状态下触及到这些功能时会自动显示登录界面，登录成功后会返回到当前页面，刷新当前用户状态。
 为了共享用户状态，我将用户状态保存到 store 中，并抽离出公共逻辑 useAuth.ts
 
-
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7630a1ebf234440bb5c34f25165e1c9f~tplv-k3u1fbpfcp-watermark.image =300)
 <img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7630a1ebf234440bb5c34f25165e1c9f~tplv-k3u1fbpfcp-watermark.image" width="300px" alt="亮色主题">
 
 ### 个人中心
@@ -60,6 +58,7 @@
 
 ### 评论
 歌曲和歌单的评论是同一个组件，只是传入的参数不同。
+
 实现的功能有
 - 评论列表
 - 发布评论
@@ -74,10 +73,12 @@
 <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3e574fb3614e4bbcbacb6ba60ad02864~tplv-k3u1fbpfcp-watermark.image" width="300px" >
 
 ### 关注/粉丝列表
+
 <img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c966d025a23b498a89518c8d7fa16fbb~tplv-k3u1fbpfcp-watermark.image" width="300px" >
 
 ### 歌手主页
-歌手主页和用户主页使用的是同一个布局组件，通过传入 slot 插槽, 呈现不同的主体。
+歌手主页和用户主页使用的是同一个布局组件。
+
 <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/404dba10e33c49288fd908601ae06229~tplv-k3u1fbpfcp-watermark.image" width="300px">
 
 ### 歌手分类
